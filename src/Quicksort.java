@@ -1,3 +1,4 @@
+import java.io.PrintWriter;
 import java.util.Comparator;
 
 /**
@@ -45,7 +46,9 @@ public class Quicksort implements Sorter {
    * @post For all i, 0 < i < vals.length, order.compare(vals[i-1], vals[i]) <= 0
    */
   public <T> void sort(T[] values, Comparator<? super T> order) {
-    // STUB
+    PrintWriter pen = new PrintWriter(System.out, true);
+    int a = partition(values, order, 0, values.length);
+    pen.println("~~" + a );
   } // sort(T[], Comparator<? super T>)
 
   /**
@@ -63,7 +66,11 @@ public class Quicksort implements Sorter {
    * Sort the subarray of T given by [lb..ub) in place using the Quicksort algorithm.
    */
   <T> void quicksort(T[] values, Comparator<? super T> order, int lb, int ub) {
-    // STUB
+    if (lb - ub > 1) {
+      int loc = partition(values, order, lb, ub);
+      //quicksort(values, order, lb, loc);
+      //quicksort(values, order, loc, ub);
+    }
   } // quicksort(T[], Comparator<? super T>, lb, ub)
 
   /**
@@ -88,20 +95,27 @@ public class Quicksort implements Sorter {
     arr[0] = pivotVal;
     small++;
     while (small < large) {
-      while (order.compare(arr[small], pivotVal) < 1 || order.compare(arr[large - 1], pivotVal) == 1) {
+      while ((small < large) && (order.compare(arr[small], pivotVal) < 1 || order.compare(arr[large - 1], pivotVal) == 1)) {
         if (order.compare(arr[small], pivotVal) < 1) {
           small++;
         } // if small
         if (order.compare(arr[large - 1], pivotVal) == 1) {
           large--;
         } // if large
-      } // while
+      } // while we don't need to swap small and large
+      if(small >= large) {
+        break;
+      }
       T temp = arr[small];
       arr[small] = arr[large - 1];
       arr[large -1] = temp;
+      small++;
+      large--;
     } // while
+    arr[0] = arr[small - 1];
+    arr[small - 1] = pivotVal;
 
-    return 0;
+    return small;
   } // partition(T[], Comparator<? super T>, lb, ub)
 
 
