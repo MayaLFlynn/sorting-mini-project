@@ -1,4 +1,3 @@
-import java.io.PrintWriter;
 import java.util.Comparator;
 
 /**
@@ -46,17 +45,8 @@ public class Quicksort implements Sorter {
    * @post For all i, 0 < i < vals.length, order.compare(vals[i-1], vals[i]) <= 0
    */
   public <T> void sort(T[] values, Comparator<? super T> order) {
-    PrintWriter pen = new PrintWriter(System.out, true);
-    int a = partition(values, order, 0, values.length);
-    pen.println("~~" + a );
+    quicksort(values, order, 0, values.length);
   } // sort(T[], Comparator<? super T>)
-
-  /**
-   * Partition an array.
-   */
-  public <T> void partition(T[] values, Comparator<? super T> order) {
-    partition(values, order, 0, values.length);
-  } // partition(T[], Comparator<? super T>)
 
   // +----------------------+----------------------------------------
   // | Semi-private methods |
@@ -66,33 +56,20 @@ public class Quicksort implements Sorter {
    * Sort the subarray of T given by [lb..ub) in place using the Quicksort algorithm.
    */
   <T> void quicksort(T[] values, Comparator<? super T> order, int lb, int ub) {
-    if (lb - ub > 1) {
+    if (ub - lb > 1) {
       int loc = partition(values, order, lb, ub);
-      //quicksort(values, order, lb, loc);
-      //quicksort(values, order, loc, ub);
-    }
+      quicksort(values, order, lb, loc);
+      quicksort(values, order, loc + 1, ub);
+    } // if
   } // quicksort(T[], Comparator<? super T>, lb, ub)
 
-  /**
-   * Select a pivot and partition the subarray from [lb .. ub) into the following form.
-   *
-   * <pre>
-   * ---+-----------------+-+----------------+---
-   *    | values <= pivot |p| values > pivot |
-   * ---+-----------------+-+----------------+---
-   *    |                 |                  |
-   *    lb                pivotLoc           ub
-   * </pre>
-   *
-   * @return pivotLoc.
-   */
   public static <T> int partition(T[] arr, Comparator<? super T> order, int lb, int ub) {
-    int pivotLoc = (ub - lb) / 2;
+    int pivotLoc = (ub - lb) / 2 + lb;
     T pivotVal = arr[pivotLoc];
     int small = lb;
     int large = ub;
-    arr[pivotLoc] = arr[0];
-    arr[0] = pivotVal;
+    arr[pivotLoc] = arr[lb];
+    arr[lb] = pivotVal;
     small++;
     while (small < large) {
       while ((small < large) && (order.compare(arr[small], pivotVal) < 1 || order.compare(arr[large - 1], pivotVal) == 1)) {
@@ -112,11 +89,9 @@ public class Quicksort implements Sorter {
       small++;
       large--;
     } // while
-    arr[0] = arr[small - 1];
+    arr[lb] = arr[small - 1];
     arr[small - 1] = pivotVal;
 
-    return small;
+    return small - 1;
   } // partition(T[], Comparator<? super T>, lb, ub)
-
-
 } // class Quicksort
