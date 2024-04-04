@@ -30,6 +30,12 @@ public class InsertionSort implements Sorter {
   // | Methods |
   // +---------+
 
+  /**
+   * Sorts the array using the insertion sort algorithm
+   * 
+   * @param values
+   * @param order
+   */
   @Override
   public <T> void sort(T[] values, Comparator<? super T> order) {
     for (int i = 1; i < values.length; i++) {
