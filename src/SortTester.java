@@ -34,7 +34,7 @@ public class SortTester {
     String[] original = { "alpha", "bravo", "charlie", "delta", "foxtrot" };
     String[] expected = original.clone();
     sorter.sort(original, (x, y) -> x.compareTo(y));
-    assertArrayEquals(original, expected);
+    assertArrayEquals(expected, original);
   } // orderedStringTest
 
   @Test
@@ -42,7 +42,7 @@ public class SortTester {
     String[] original = { "foxtrot", "delta", "charlie", "bravo", "alpha" };
     String[] expected = { "alpha", "bravo", "charlie", "delta", "foxtrot" };
     sorter.sort(original, (x, y) -> x.compareTo(y));
-    assertArrayEquals(original, expected);
+    assertArrayEquals(expected, original);
   } // orderedStringTest
 
   @Test
@@ -50,7 +50,7 @@ public class SortTester {
     String[] original = { "bravo", "delta", "foxtrot", "charlie", "alpha" };
     String[] expected = { "alpha", "bravo", "charlie", "delta", "foxtrot" };
     sorter.sort(original, (x, y) -> x.compareTo(y));
-    assertArrayEquals(original, expected);
+    assertArrayEquals(expected, original);
   } // orderedStringTest
 
   @Test
@@ -58,7 +58,7 @@ public class SortTester {
     String[] original = { "charlie", "foxtrot", "delta", "bravo", "foxtrot" };
     String[] expected = { "bravo", "charlie", "delta", "foxtrot", "foxtrot" };
     sorter.sort(original, (x, y) -> x.compareTo(y));
-    assertArrayEquals(original, expected);
+    assertArrayEquals(expected, original);
   } // orderedStringTest
 
   @Test
@@ -66,7 +66,7 @@ public class SortTester {
     Integer[] original = {0, 1, 2, 3, 4, 5, 6};
     Integer[] expected = {0, 1, 2, 3, 4, 5, 6};
     sorter.sort(original, (x, y) -> x.compareTo(y));
-    assertArrayEquals(original, expected);
+    assertArrayEquals(expected, original);
   } // orderedStringTest
 
   @Test
@@ -74,7 +74,7 @@ public class SortTester {
     Integer[] original = {6, 5, 4, 3, 2, 1, 0};
     Integer[] expected = {0, 1, 2, 3, 4, 5, 6};
     sorter.sort(original, (x, y) -> x.compareTo(y));
-    assertArrayEquals(original, expected);
+    assertArrayEquals(expected, original);
   } // orderedStringTest
 
   @Test
@@ -82,7 +82,7 @@ public class SortTester {
     Integer[] original = {4, 6, 0, 5, 1, 2, 3};
     Integer[] expected = {0, 1, 2, 3, 4, 5, 6};
     sorter.sort(original, (x, y) -> x.compareTo(y));
-    assertArrayEquals(original, expected);
+    assertArrayEquals(expected, original);
   } // orderedStringTest
 
   @Test
@@ -90,7 +90,7 @@ public class SortTester {
     Integer[] original = {5, 1, 6, 1, 4, 5, 1};
     Integer[] expected = {1, 1, 1, 4, 5, 5, 6};
     sorter.sort(original, (x, y) -> x.compareTo(y));
-    assertArrayEquals(original, expected);
+    assertArrayEquals(expected, original);
   } // orderedStringTest
 
 
