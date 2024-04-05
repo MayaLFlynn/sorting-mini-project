@@ -72,11 +72,11 @@ public class Quicksort implements Sorter {
     arr[lb] = pivotVal;
     small++;
     while (small < large) {
-      while ((small < large) && (order.compare(arr[small], pivotVal) < 1 || order.compare(arr[large - 1], pivotVal) == 1)) {
+      while ((small < large) && (order.compare(arr[small], pivotVal) < 1 || order.compare(arr[large - 1], pivotVal) >= 1)) {
         if (order.compare(arr[small], pivotVal) < 1) {
           small++;
         } // if small
-        if (order.compare(arr[large - 1], pivotVal) == 1) {
+        if (order.compare(arr[large - 1], pivotVal) >= 1) {
           large--;
         } // if large
       } // while we don't need to swap small and large

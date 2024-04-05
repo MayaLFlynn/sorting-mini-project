@@ -57,7 +57,7 @@ public class MergeSort implements Sorter {
         vals[i] = tempHigh[midnew];
         midnew++;
       } else {
-        if ((comparator.compare(tempLow[lownew], tempHigh[midnew])) == -1) {
+        if ((comparator.compare(tempLow[lownew], tempHigh[midnew])) < 0) {
           vals[i] = tempLow[lownew];
           lownew++;
         } else {
