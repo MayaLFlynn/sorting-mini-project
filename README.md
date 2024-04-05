@@ -3,7 +3,7 @@ As the name suggests, it's our mini-project for the sorting lab.
 
 
 Acknoledgements
-I asked Peter for help on figuring out why my MergeSort works on integers, but not the same ordered strings. We weren't able to figure it out.
+Boston and Elizabeth worked with me to figure out where I was assuming that the comparator would return -1, 0, and 1 instead of <0, 0, and >0. 
 For MergeSort and Quicksort, I used the stub methods provided in the respective labs from SamR. I also used some of the code that Marina A. and I worked on for merging in MergeSort.
 
 FlynnMayaSort was created with the help of ChatGPT. I hadn't used the software before, so I wasn't totally sure how to approach the problem. It wasn't as hard as I thought it would be, but I did have to mess with my prompts a little bit. 
